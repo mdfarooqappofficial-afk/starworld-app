@@ -1,0 +1,18 @@
+{
+  "name": "starworld-app",
+  "version": "1.0.0",
+  "description": "StarWorld - A comprehensive application with web client, server, and mobile components",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "android": "cd android && npm start",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install && cd ../android && npm install"
+  },
+  "keywords": ["starworld", "app", "web", "mobile"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
