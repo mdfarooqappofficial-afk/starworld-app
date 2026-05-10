@@ -1,0 +1,455 @@
+/*
+ * STARWORLD – CELESTIAL VELVET DESIGN SYSTEM
+ * Design Movement: Romantic Maximalism / Celestial Velvet
+ * Core: Deep midnight indigo sky, warm gold & blush rose, animated stars
+ * Every screen makes users feel: "I am the star here"
+ * Fonts: Cormorant Garamond (display) · Nunito (UI/body) · Cinzel Decorative (badges)
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.10 0.04 280);
+  --foreground: oklch(0.95 0.01 80);
+  --card: oklch(0.14 0.05 275);
+  --card-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.13 0.05 278);
+  --popover-foreground: oklch(0.95 0.01 80);
+  --primary: oklch(0.82 0.16 55);
+  --primary-foreground: oklch(0.10 0.04 280);
+  --secondary: oklch(0.18 0.05 270);
+  --secondary-foreground: oklch(0.90 0.01 80);
+  --muted: oklch(0.16 0.04 275);
+  --muted-foreground: oklch(0.65 0.03 280);
+  --accent: oklch(0.75 0.18 340);
+  --accent-foreground: oklch(0.10 0.04 280);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.82 0.16 55);
+  --chart-1: oklch(0.82 0.16 55);
+  --chart-2: oklch(0.75 0.18 340);
+  --chart-3: oklch(0.70 0.15 260);
+  --chart-4: oklch(0.65 0.20 200);
+  --chart-5: oklch(0.60 0.18 130);
+  --sidebar: oklch(0.12 0.04 278);
+  --sidebar-foreground: oklch(0.95 0.01 80);
+  --sidebar-primary: oklch(0.82 0.16 55);
+  --sidebar-primary-foreground: oklch(0.10 0.04 280);
+  --sidebar-accent: oklch(0.16 0.04 275);
+  --sidebar-accent-foreground: oklch(0.95 0.01 80);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.82 0.16 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent overscroll bounce on iOS */
+    overscroll-behavior: none;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 480px;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* ── Glass card ── */
+  .glass-card {
+    background: oklch(1 0 0 / 6%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 12%);
+    border-radius: 1.25rem;
+  }
+
+  /* ── Gold shimmer text ── */
+  .gold-text {
+    background: linear-gradient(135deg, oklch(0.88 0.18 65) 0%, oklch(0.82 0.16 55) 40%, oklch(0.92 0.20 70) 70%, oklch(0.78 0.14 45) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Blush shimmer text ── */
+  .blush-text {
+    background: linear-gradient(135deg, oklch(0.80 0.20 345) 0%, oklch(0.75 0.18 340) 50%, oklch(0.82 0.16 330) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Avatar glow ring ── */
+  .avatar-glow {
+    box-shadow: 0 0 0 2px oklch(0.82 0.16 55 / 60%), 0 0 20px oklch(0.82 0.16 55 / 30%);
+  }
+  .avatar-glow-blush {
+    box-shadow: 0 0 0 2px oklch(0.75 0.18 340 / 60%), 0 0 20px oklch(0.75 0.18 340 / 30%);
+  }
+
+  /* ── Gold button ── */
+  .btn-gold {
+    background: linear-gradient(135deg, oklch(0.88 0.18 65), oklch(0.78 0.14 45));
+    color: oklch(0.10 0.04 280);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.65rem 1.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px oklch(0.82 0.16 55 / 40%);
+    display: inline-block;
+    text-align: center;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px oklch(0.82 0.16 55 / 60%);
+  }
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  /* ── Blush button ── */
+  .btn-blush {
+    background: linear-gradient(135deg, oklch(0.80 0.20 345), oklch(0.68 0.16 335));
+    color: oklch(0.97 0 0);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.65rem 1.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px oklch(0.75 0.18 340 / 40%);
+    display: inline-block;
+    text-align: center;
+  }
+  .btn-blush:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px oklch(0.75 0.18 340 / 60%);
+  }
+
+  /* ── Ghost button ── */
+  .btn-ghost-gold {
+    background: transparent;
+    color: oklch(0.82 0.16 55);
+    border: 1px solid oklch(0.82 0.16 55 / 40%);
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .btn-ghost-gold:hover {
+    background: oklch(0.82 0.16 55 / 10%);
+    border-color: oklch(0.82 0.16 55 / 70%);
+  }
+
+  /* ── Badge ── */
+  .badge-rank {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, oklch(0.88 0.18 65), oklch(0.78 0.14 45));
+    color: oklch(0.10 0.04 280);
+    display: inline-block;
+  }
+
+  /* ── Bottom nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    background: oklch(0.11 0.05 278 / 92%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid oklch(1 0 0 / 10%);
+    z-index: 50;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* ── Floating heart particle ── */
+  .heart-particle {
+    position: absolute;
+    pointer-events: none;
+    animation: floatUp 2s ease-out forwards;
+    font-size: 1.2rem;
+    z-index: 20;
+  }
+
+  /* ── Notification pill ── */
+  .notif-pill {
+    background: linear-gradient(135deg, oklch(0.82 0.16 55 / 15%), oklch(0.75 0.18 340 / 10%));
+    border: 1px solid oklch(0.82 0.16 55 / 25%);
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* ── Section heading ── */
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* ── Couple ring badge ── */
+  .ring-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: linear-gradient(135deg, oklch(0.88 0.18 65 / 20%), oklch(0.75 0.18 340 / 15%));
+    border: 1px solid oklch(0.82 0.16 55 / 30%);
+    border-radius: 9999px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.72rem;
+    color: oklch(0.88 0.18 65);
+    font-weight: 600;
+  }
+
+  /* ── Live badge ── */
+  .live-badge {
+    background: linear-gradient(135deg, oklch(0.65 0.22 25), oklch(0.58 0.20 20));
+    color: white;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 0.18rem 0.5rem;
+    border-radius: 4px;
+    animation: livePulse 2s ease-in-out infinite;
+    display: inline-block;
+  }
+
+  /* ── Scrollable row ── */
+  .scroll-row {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  .scroll-row::-webkit-scrollbar { display: none; }
+
+  /* ── Couple room card glow ── */
+  .room-glow {
+    animation: roomGlow 4s ease-in-out infinite;
+  }
+
+  /* ── Moonlight sweep ── */
+  .moonlight-sweep {
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 80vh;
+    background: radial-gradient(ellipse at 60% 20%, oklch(0.82 0.16 55 / 6%) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    animation: moonPulse 8s ease-in-out infinite;
+  }
+
+  /* ── Mobile app shell ── */
+  .app-shell {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100dvh;
+    position: relative;
+    overflow-x: hidden;
+    background: oklch(0.10 0.04 280);
+    isolation: isolate;
+  }
+
+  /* ── Page content area (above bottom nav) ── */
+  .page-content {
+    padding-bottom: 5.5rem;
+    min-height: 100dvh;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ═══════════════════════════════════════
+   KEYFRAME ANIMATIONS
+═══════════════════════════════════════ */
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120px) scale(0.5); opacity: 0; }
+}
+
+@keyframes moonPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.65 0.22 25 / 60%); }
+  50% { box-shadow: 0 0 0 4px oklch(0.65 0.22 25 / 0%); }
+}
+
+@keyframes roomGlow {
+  0%, 100% { box-shadow: 0 0 30px oklch(0.75 0.18 340 / 20%), 0 0 60px oklch(0.82 0.16 55 / 10%); }
+  50% { box-shadow: 0 0 50px oklch(0.75 0.18 340 / 35%), 0 0 80px oklch(0.82 0.16 55 / 20%); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.08); }
+}
+
+@keyframes reactionFloat {
+  0% { transform: translateY(0) scale(1) rotate(-10deg); opacity: 1; }
+  100% { transform: translateY(-200px) scale(0.3) rotate(20deg); opacity: 0; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes aiPulse {
+  0%, 100% { box-shadow: 0 0 20px oklch(0.70 0.15 260 / 40%); }
+  50% { box-shadow: 0 0 40px oklch(0.70 0.15 260 / 70%), 0 0 80px oklch(0.82 0.16 55 / 20%); }
+}
+
+@keyframes shimmerGold {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Utility animations ── */
+.animate-slide-up { animation: slideUp 0.5s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+.animate-heartbeat { animation: heartBeat 1.5s ease-in-out infinite; }
+.animate-ai-pulse { animation: aiPulse 3s ease-in-out infinite; }
+.animate-bounce-in { animation: bounceIn 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards; }
+
+/* ── Stagger delays ── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: oklch(0.82 0.16 55 / 25%); border-radius: 9999px; }
+
+/* ── Selection color ── */
+::selection { background: oklch(0.82 0.16 55 / 30%); color: oklch(0.97 0 0); }
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid oklch(0.82 0.16 55 / 60%);
+  outline-offset: 2px;
+}
