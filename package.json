@@ -1,9 +1,6 @@
 {
   "name": "starworld-app",
   "version": "1.0.0",
-  "description": "StarWorld - A comprehensive application with web client, server, and mobile components",
-  "main": "server/index.js",
-  "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
     "build": "cd client && npm install && npm run build",
@@ -17,3 +14,9 @@
   "dependencies": {},
   "devDependencies": {}
 }
+ 18
+ 19
+ 
+  "description": "StarWorld - A comprehensive application with web client, server, and mobile components",
+  "main": "server/index.js",
+  "scripts": {
