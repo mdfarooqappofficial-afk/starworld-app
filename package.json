@@ -1,3 +1,7 @@
+
+  "description": "StarWorld - A comprehensive application with web client, server, and mobile components",
+  "main": "server/index.js",
+  "scripts": {
 {
   "name": "starworld-app",
   "version": "1.0.0",
@@ -17,6 +21,3 @@
  18
  19
  
-  "description": "StarWorld - A comprehensive application with web client, server, and mobile components",
-  "main": "server/index.js",
-  "scripts": {
