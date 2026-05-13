@@ -6,12 +6,13 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
+    "build": "cd client && npm install && npm run build",
     "client": "cd client && npm start",
     "android": "cd android && npm start",
     "install-all": "npm install && cd client && npm install && cd ../server && npm install && cd ../android && npm install"
   },
   "keywords": ["starworld", "app", "web", "mobile"],
-  "author": "",
+  "author": "Farooq Wafadar",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {}
